@@ -42,8 +42,6 @@ CREATE TABLE user_profiles (
     
     -- Authentication & Session
     anonymous_handle VARCHAR(50) UNIQUE NOT NULL, -- Generated handle
-    password_hash VARCHAR(255) NOT NULL,
-    session_token VARCHAR(255),
     last_active TIMESTAMP WITH TIME ZONE,
     
     -- Profile Information
@@ -52,7 +50,6 @@ CREATE TABLE user_profiles (
     secondary_languages language_code[],
     time_zone VARCHAR(50) NOT NULL, -- IANA time zone
     country_code CHAR(2) NOT NULL, -- ISO 3166-1 alpha-2
-    region VARCHAR(100), -- State/province (optional)
     
     -- Cultural Profile
     bio TEXT CHECK (char_length(bio) <= 500),
